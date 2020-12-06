@@ -1,0 +1,16 @@
+service: surfing-lambda
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  hello:
+    handler: handler.headline
+    memorySize: 1600
+    timeout: 60
+    events:
+      - http:
+          path: headline/{outlet}
+          method: get
